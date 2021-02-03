@@ -1,21 +1,22 @@
 package br.com.diegosilva.sched.client.model;
 
+import java.util.Map;
 import java.util.Objects;
 
-public class HttpJobDetailRequest {
+public class HttpJobDetail {
 
     private final String jobId;
     private final String description;
     private final String cron;
     private final String url;
     private final String method;
-    private final String headerParams;
-    private final String bodyParams;
-    private final String queryParams;
+    private final Map<String, Object> headerParams;
+    private final Map<String, Object> bodyParams;
+    private final Map<String, Object> queryParams;
 
 
-    public HttpJobDetailRequest(String jobId, String description, String cron, String url, String method,
-                                String headerParams, String bodyParams, String queryParams) {
+    public HttpJobDetail(String jobId, String description, String cron, String url, String method,
+                         Map<String, Object> headerParams, Map<String, Object> bodyParams, Map<String, Object> queryParams) {
         this.jobId = jobId;
         this.description = description;
         this.cron = cron;
@@ -46,15 +47,15 @@ public class HttpJobDetailRequest {
         return method;
     }
 
-    public String getHeaderParams() {
+    public Map<String, Object> getHeaderParams() {
         return headerParams;
     }
 
-    public String getBodyParams() {
+    public Map<String, Object> getBodyParams() {
         return bodyParams;
     }
 
-    public String getQueryParams() {
+    public Map<String, Object> getQueryParams() {
         return queryParams;
     }
 
@@ -62,7 +63,7 @@ public class HttpJobDetailRequest {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HttpJobDetailRequest that = (HttpJobDetailRequest) o;
+        HttpJobDetail that = (HttpJobDetail) o;
         return Objects.equals(jobId, that.jobId);
     }
 

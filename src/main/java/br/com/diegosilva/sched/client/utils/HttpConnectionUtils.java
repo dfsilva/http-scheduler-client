@@ -43,7 +43,7 @@ public abstract class HttpConnectionUtils {
                 || connection.getResponseCode() == HttpURLConnection.HTTP_CREATED) {
             response = getStringFromInputStream(connection.getInputStream());
         } else {
-            response = getStringFromInputStream(connection.getErrorStream());
+            throw new RuntimeException(getStringFromInputStream(connection.getErrorStream()));
         }
         return response;
     }
